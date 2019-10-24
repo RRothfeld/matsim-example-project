@@ -38,12 +38,12 @@ public class RunMatsim{
 		Config config = ConfigUtils.loadConfig(args) ;
 
 		Scenario scenario = ScenarioUtils.loadScenario(config) ;
-		scenario.getPopulation().getFactory().getRouteFactories().setRouteFactory(DefaultEnrichedTransitRoute.class,
-				new DefaultEnrichedTransitRouteFactory());
+//		scenario.getPopulation().getFactory().getRouteFactories().setRouteFactory(DefaultEnrichedTransitRoute.class,
+//				new DefaultEnrichedTransitRouteFactory());
 
 		Controler controler = new Controler(scenario);
-		controler.addOverridingModule(new SwissRailRaptorModule());
-		controler.addOverridingModule(new BaselineTransitModule());
+//		controler.addOverridingModule(new SwissRailRaptorModule());
+//		controler.addOverridingModule(new BaselineTransitModule());
 		controler.run();
 	}
 	
