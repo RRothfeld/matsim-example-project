@@ -48,12 +48,6 @@ public class CreateNetworkSolution {
         Node n7 = fac.createNode(Id.createNodeId(7), new Coord(6000,0));
         net.addNode(n7);
 
-        //
-        //
-        //add missing nodes here...
-        //
-        //
-
         // create links
 
         //link 0 <-> 1
@@ -138,7 +132,7 @@ public class CreateNetworkSolution {
 
 
         // write network
-        new NetworkWriter(net).write("networkFinished.xml");
+        new NetworkWriter(net).write(args[0]);
     }
 
     private static void setUrbanLinkAttributes(Link link) {

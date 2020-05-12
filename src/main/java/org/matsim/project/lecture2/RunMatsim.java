@@ -13,9 +13,9 @@ import org.matsim.core.scenario.ScenarioUtils;
 public class RunMatsim {
     public static void main(String[] args) {
         Config config = ConfigUtils.createConfig();
-        config.controler().setLastIteration(100);
+        config.controler().setLastIteration(10);
         config.controler().setOverwriteFileSetting( OverwriteFileSetting.deleteDirectoryIfExists );
-        config.network().setInputFile("networkFinished.xml");
+        config.network().setInputFile("network.xml");
         config.plans().setInputFile("population.xml");
 
         PlanCalcScoreConfigGroup.ActivityParams home = new PlanCalcScoreConfigGroup.ActivityParams("home");

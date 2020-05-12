@@ -39,6 +39,8 @@ public class CreateNetwork {
         net.addNode(n2);
         Node n3 = fac.createNode(Id.createNodeId(3), new Coord(3000, 1000));
         net.addNode(n3);
+        Node n4 = fac.createNode(Id.createNodeId(4), new Coord(3000, -1000));
+        net.addNode(n4);
 
         //
         //
@@ -75,6 +77,7 @@ public class CreateNetwork {
         //
         //
         // set link attributes
+        setLinkAttributes(l_23, CAP_Urban, LINK_SPEED_Urban);
         //
         //
 
@@ -84,6 +87,7 @@ public class CreateNetwork {
     }
 
     private static void setLinkAttributes(Link link, double capacity, double freespeed) {
-        // fill in method
+        link.setCapacity(capacity);
+        link.setFreespeed(freespeed);
     }
 }

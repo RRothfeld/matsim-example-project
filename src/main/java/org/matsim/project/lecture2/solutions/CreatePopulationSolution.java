@@ -13,8 +13,6 @@ public class CreatePopulationSolution {
 
 
     public static void main(String[] args) {
-
-
         //Create population and plans
         //Create 500 People designated by the number of iteration.
         //Create same plan for all people.
@@ -24,8 +22,7 @@ public class CreatePopulationSolution {
         PopulationFactory factory = population.getFactory();
 
         //Complete the for loop
-        for (int i = 0; i<100; i++){
-
+        for (int i = 0; i < 500; i++){
             //Create person
             Person person = factory.createPerson(Id.createPersonId(i));
 
@@ -42,7 +39,6 @@ public class CreatePopulationSolution {
              Leg leg = factory.createLeg(TransportMode.car);
              plan.addLeg(leg);
 
-
             //Create "work" activity for the i^th Person.
             Coord workCoordinate = new Coord(6000,0);
             Activity activity2 = factory.createActivityFromCoord("work", workCoordinate);
@@ -55,21 +51,14 @@ public class CreatePopulationSolution {
 
             //Create another home activity
             Activity activity3 = factory.createActivityFromCoord("home", homeCoordinate);
-            activity3.setEndTime(8*60*60);
             plan.addActivity(activity3);
 
             person.addPlan(plan);
             population.addPerson(person);
-
         }
-
 
         // Write the population to a file.
         PopulationWriter writer = new PopulationWriter(population);
         writer.write("population.xml");
-
     }
-
-
-
 }
