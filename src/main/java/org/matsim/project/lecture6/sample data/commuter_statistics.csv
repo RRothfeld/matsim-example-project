@@ -1,0 +1,22 @@
+From County,From SHC,To County,To SHC,Number of Commuters 
+Munich,9162,Augsburg City,9761,2005
+Munich,9162,Dachau,9174,5491
+Munich,9162,Ebersberg,9175,5761
+Munich,9162,Erding,9177,3364
+Munich,9162,Freising,9178,9918
+Munich,9162,Fürstenfeldbruck,9179,7065
+Munich,9162,Ingolstadt City,9161,1776
+Munich,9162,Munich County,9184,78001
+Munich,9162,Miesbach,9182,2169
+Munich,9162,Starnberg,9188,8137
+Augsburg City,9761,Munich,9162,9170
+Dachau,9174,Munich,9162,27831
+Ebersberg,9175,Munich,9162,21257
+Erding,9177,Munich,9162,12767
+Freising,9178,Munich,9162,18339
+Fürstenfeldbruck,9179,Munich,9162,35780
+Munich County,9184,Munich,9162,64479
+Starnberg,9188,Munich,9162,15669
+ Pfaffenhofen,9186,Munich,9162,8065
+Rosenheim,9163,Munich,9162,8360
+Munich,9162,Munich,9162,466885
