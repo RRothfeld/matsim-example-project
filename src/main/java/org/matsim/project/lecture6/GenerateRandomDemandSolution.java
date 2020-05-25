@@ -176,7 +176,6 @@ public class GenerateRandomDemandSolution {
 					+ rnd.nextDouble() * (g.getEnvelopeInternal().getMaxY() - g.getEnvelopeInternal().getMinY());
 			p = MGC.xy2Point(x, y);
 		} while (!g.contains(p));
-		Coord coord = new Coord(p.getX(), p.getY());
-		return coord;
+		return new Coord(p.getX(), p.getY());
 	}
 }

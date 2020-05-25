@@ -56,7 +56,8 @@ public class GenerateRandomDemandTutorial {
 		this.shapeMap = readShapeFile(COUNTIESFILE, COUNTIESID);
 
 		// write a new method to create OD relations
-		createOD(2005, 0.6, "09162", "09761", "Munich City-Augsburg City");
+		createOD(7763, 0.6, "09362", "09375", "rc-rl");
+		createOD(7763, 0.6, "09362", "09375", "rc-rl");
 		// ...
 
 		// Write the population file to specified folder
