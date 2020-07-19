@@ -56,9 +56,9 @@ public class GenerateRandomDemandSolutionHyperloop {
 		this.shapeMap = readShapeFile(COUNTIESFILE, COUNTIESID);
 
 		// write a new method to create OD relations
-		createOD(100, "car", "46", "162", "carUser");
-		createOD(100, "pt", "46", "162", "ptUser");
-		createOD(100, "uam", "46", "162", "hyperloopUser");
+		createOD(10, "car", "46", "162", "carUser");
+		//createOD(10, "pt", "46", "162", "ptUser");
+		createOD(10, "uam", "46", "162", "hyperloopUser");
 
 
 		// Write the population file to specified folder
