@@ -23,11 +23,11 @@ import java.util.Map;
 import java.util.Random;
 
 
-public class GenerateRandomDemandSolution {
+public class GenerateRandomDemandSolutionHyperloop {
 	// Specify all input files
 	private static final String COUNTIESFILE = "NUTS3.shp"; // Polygon shapefile for demand generation
 	private static final String COUNTIESID = "id";
-	private static final String PLANSFILEOUTPUT = "plans.xml"; // The output file of demand generation
+	private static final String PLANSFILEOUTPUT = "plans_hyperloop.xml"; // The output file of demand generation
 
 	// Due to the huge number of commuters, it's preferable to decrease the size of simulating agents (sampling).
 	private static double SCALEFACTOR = 1;
@@ -35,7 +35,7 @@ public class GenerateRandomDemandSolution {
 	// Define the coordinate transformation function
 	// If an error occurs here with geotools, you need to run this using Java 8
 	private final CoordinateTransformation transformation = TransformationFactory
-			.getCoordinateTransformation("EPSG:31467", TransformationFactory.DHDN_GK4);
+			.getCoordinateTransformation("EPSG:31467", "EPSG:31467");
 
 	// Define objects and parameters
 	private Scenario scenario;
@@ -43,11 +43,11 @@ public class GenerateRandomDemandSolution {
 
 	// Entering point of the class "Generate Random Demand"
 	public static void main(String[] args) {
-		new GenerateRandomDemandSolution().run();
+		new GenerateRandomDemandSolutionHyperloop().run();
 	}
 
 	// A constructor for this class, which is to set up the scenario container.
-	GenerateRandomDemandSolution() {
+	GenerateRandomDemandSolutionHyperloop() {
 		this.scenario = ScenarioUtils.createScenario(ConfigUtils.createConfig());
 	}
 
@@ -101,21 +101,14 @@ public class GenerateRandomDemandSolution {
 		Plan plan = scenario.getPopulation().getFactory().createPlan();
 
 		Activity home = scenario.getPopulation().getFactory().createActivityFromCoord("home", coord);
-		home.setEndTime(9 * 60 * 60 + variance);
+		home.setEndTime(6 * 60 * 60 + variance);
 		plan.addActivity(home);
 
 		Leg legtowork = scenario.getPopulation().getFactory().createLeg(mode);
 		plan.addLeg(legtowork);
 
 		Activity work = scenario.getPopulation().getFactory().createActivityFromCoord("work", coordWork);
-		work.setEndTime(17 * 60 * 60 + variance);
 		plan.addActivity(work);
-
-		Leg legbackhome = scenario.getPopulation().getFactory().createLeg(mode);
-		plan.addLeg(legbackhome);
-
-		Activity home2 = scenario.getPopulation().getFactory().createActivityFromCoord("home", coord);
-		plan.addActivity(home2);
 
 		person.addPlan(plan);
 		scenario.getPopulation().addPerson(person);
