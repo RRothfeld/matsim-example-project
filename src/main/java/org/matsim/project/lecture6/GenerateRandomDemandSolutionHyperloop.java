@@ -57,7 +57,6 @@ public class GenerateRandomDemandSolutionHyperloop {
 
 		// write a new method to create OD relations
 		createOD(10, "car", "46", "162", "carUser");
-		//createOD(10, "pt", "46", "162", "ptUser");
 		createOD(10, "uam", "46", "162", "hyperloopUser");
 
 
