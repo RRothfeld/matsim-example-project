@@ -57,24 +57,14 @@ public class GenerateRandomDemandSolutionRegionalAir {
 
 		// write a new method to create OD relations
 		createOD(10, "car", "162", "141", "carUser0");
-		createOD(10, "car", "224", "185", "carUser1");
-		createOD(10, "car", "269", "174", "carUser2");
-		createOD(10, "car", "336", "3", "carUser3");
-		createOD(10, "car", "54", "42", "carUser4");
-		createOD(10, "car", "400", "348", "carUser5");
-		createOD(10, "car", "98", "106", "carUser6");
-		createOD(10, "car", "390", "285", "carUser7");
+		createOD(10, "car", "358", "224", "carUser1");
+		createOD(10, "car", "185", "318", "carUser2");
+		createOD(10, "car", "54", "104", "carUser3");
 
 		createOD(10, "uam", "162", "141", "regAirUser0");
-		createOD(10, "uam", "224", "185", "regAirUser1");
-		createOD(10, "uam", "269", "174", "regAirUser2");
-		createOD(10, "uam", "336", "3", "regAirUser3");
-		createOD(10, "uam", "54", "42", "regAirUser4");
-		createOD(10, "uam", "400", "348", "regAirUser5");
-		createOD(10, "uam", "98", "106", "regAirUser6");
-		createOD(10, "uam", "390", "285", "regAirUser7");
-
-
+		createOD(10, "uam", "358", "224", "regAirUser1");
+		createOD(10, "uam", "185", "318", "regAirUser2");
+		createOD(10, "uam", "54", "104", "regAirUser3");
 
 		// Write the population file to specified folder
 		PopulationWriter pw = new PopulationWriter(scenario.getPopulation(), scenario.getNetwork());
