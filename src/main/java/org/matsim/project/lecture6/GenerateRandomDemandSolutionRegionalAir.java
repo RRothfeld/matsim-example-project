@@ -23,11 +23,11 @@ import java.util.Map;
 import java.util.Random;
 
 
-public class GenerateRandomDemandSolutionHyperloop {
+public class GenerateRandomDemandSolutionRegionalAir {
 	// Specify all input files
 	private static final String COUNTIESFILE = "NUTS3.shp"; // Polygon shapefile for demand generation
 	private static final String COUNTIESID = "id";
-	private static final String PLANSFILEOUTPUT = "plans_hyperloop.xml"; // The output file of demand generation
+	private static final String PLANSFILEOUTPUT = "plans_regionalair.xml"; // The output file of demand generation
 
 	// Due to the huge number of commuters, it's preferable to decrease the size of simulating agents (sampling).
 	private static double SCALEFACTOR = 1;
@@ -43,11 +43,11 @@ public class GenerateRandomDemandSolutionHyperloop {
 
 	// Entering point of the class "Generate Random Demand"
 	public static void main(String[] args) {
-		new GenerateRandomDemandSolutionHyperloop().run();
+		new GenerateRandomDemandSolutionRegionalAir().run();
 	}
 
 	// A constructor for this class, which is to set up the scenario container.
-	GenerateRandomDemandSolutionHyperloop() {
+	GenerateRandomDemandSolutionRegionalAir() {
 		this.scenario = ScenarioUtils.createScenario(ConfigUtils.createConfig());
 	}
 
@@ -56,8 +56,24 @@ public class GenerateRandomDemandSolutionHyperloop {
 		this.shapeMap = readShapeFile(COUNTIESFILE, COUNTIESID);
 
 		// write a new method to create OD relations
-		createOD(10, "car", "46", "162", "carUser");
-		createOD(10, "uam", "46", "162", "hyperloopUser");
+		createOD(10, "car", "162", "141", "carUser0");
+		createOD(10, "car", "224", "185", "carUser1");
+		createOD(10, "car", "269", "174", "carUser2");
+		createOD(10, "car", "336", "3", "carUser3");
+		createOD(10, "car", "54", "42", "carUser4");
+		createOD(10, "car", "400", "348", "carUser5");
+		createOD(10, "car", "98", "106", "carUser6");
+		createOD(10, "car", "390", "285", "carUser7");
+
+		createOD(10, "uam", "162", "141", "regAirUser0");
+		createOD(10, "uam", "224", "185", "regAirUser1");
+		createOD(10, "uam", "269", "174", "regAirUser2");
+		createOD(10, "uam", "336", "3", "regAirUser3");
+		createOD(10, "uam", "54", "42", "regAirUser4");
+		createOD(10, "uam", "400", "348", "regAirUser5");
+		createOD(10, "uam", "98", "106", "regAirUser6");
+		createOD(10, "uam", "390", "285", "regAirUser7");
+
 
 
 		// Write the population file to specified folder
