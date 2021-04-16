@@ -132,7 +132,7 @@ public class CreateNetworkSolution {
 
 
         // write network
-        new NetworkWriter(net).write(args[0]);
+        new NetworkWriter(net).write("network.xml");
     }
 
     private static void setUrbanLinkAttributes(Link link) {

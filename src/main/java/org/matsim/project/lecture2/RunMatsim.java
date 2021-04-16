@@ -50,13 +50,4 @@ public class RunMatsim {
         controler.run();
 
     }
-
-
-
-
-
-
-
-
-
 }
