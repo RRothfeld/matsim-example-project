@@ -130,7 +130,6 @@ public class CreateNetworkSolution {
         setSubUrbanLinkAttributes(l_76);
 
 
-
         // write network
         new NetworkWriter(net).write("network.xml");
     }

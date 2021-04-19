@@ -36,8 +36,8 @@ public class CreatePopulationSolution {
             plan.addActivity(activity1);
 
             //Add leg
-             Leg leg = factory.createLeg(TransportMode.car);
-             plan.addLeg(leg);
+            Leg leg = factory.createLeg(TransportMode.car);
+            plan.addLeg(leg);
 
             //Create "work" activity for the i^th Person.
             Coord workCoordinate = new Coord(6000,0);

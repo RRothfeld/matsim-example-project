@@ -23,7 +23,7 @@ public class PopulationTutorial {
         Scenario scenario = ScenarioUtils.createScenario(config) ;
 
         Population emptyPopulation = PopulationUtils.createPopulation(config);
-        Population existingPopulation = scenario.getPopulation();
+        //Population existingPopulation = scenario.getPopulation();
 
         PopulationFactory factory = emptyPopulation.getFactory();
 
@@ -45,14 +45,17 @@ public class PopulationTutorial {
         //Create and add trip leg by car
         Leg leg2Home = factory.createLeg(TransportMode.car);
         plan1.addLeg(leg2Home);
+        //Final activity (back home)
+        Activity homeActivity2 = factory.createActivityFromCoord("home", new Coord(0,0));
+        plan1.addActivity(homeActivity2);
+
         //Add plan to person
         person1.addPlan(plan1);
-
 
         emptyPopulation.addPerson(person1);
 
         PopulationWriter writer = new PopulationWriter(emptyPopulation);
-        writer.write("file-path");
+        writer.write("population.xml");
 
         Scenario emptyScenario = ScenarioUtils.createScenario(config);
         PopulationReader reader = new PopulationReader(emptyScenario);
