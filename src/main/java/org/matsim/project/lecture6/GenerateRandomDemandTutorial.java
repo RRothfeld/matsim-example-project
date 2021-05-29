@@ -35,7 +35,7 @@ public class GenerateRandomDemandTutorial {
 	// Define the coordinate transformation function
 	// If an error occurs here with geotools, you need to run this using Java 8
 	private final CoordinateTransformation transformation = TransformationFactory
-			.getCoordinateTransformation("INPUT CRS", TransformationFactory.DHDN_GK4);
+			.getCoordinateTransformation("EPSG:31468", TransformationFactory.DHDN_GK4);
 
 	// Define objects and parameters
 	private Scenario scenario;
