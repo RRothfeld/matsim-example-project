@@ -12,13 +12,14 @@ public class RunEventsExample {
     public static void main(String[] args) {
         EventsManager manager = EventsUtils.createEventsManager();
 
-		manager.addHandler(new MyEventHandler1());
+		//manager.addHandler(new MyEventHandler1()); // registering my Event Handler
+        manager.addHandler(new PersonUsingPTEventHandler());
 
-		Network network = NetworkUtils.createNetwork();
-		MatsimNetworkReader reader = new MatsimNetworkReader(network);
-		reader.readFile("output/output_network.xml.gz");
+		//Network network = NetworkUtils.createNetwork();
+    	//MatsimNetworkReader reader = new MatsimNetworkReader(network);
+		//reader.readFile("output/output_network.xml.gz");
 
-		manager.addHandler(new CongestionDetectionEventHandler(network));
+		//manager.addHandler(new CongestionDetectionEventHandler(network));
 
         EventsReaderXMLv1 eventsReader = new EventsReaderXMLv1(manager);
         eventsReader.readFile("output/output_events.xml.gz");

@@ -21,11 +21,11 @@ import java.util.Map;
 public class CongestionDetectionEventHandler implements LinkEnterEventHandler,
 	LinkLeaveEventHandler, PersonDepartureEventHandler{
 	
-	private Map<Id<Vehicle>,Double> earliestLinkExitTime = new HashMap<>() ;
+	private Map<Id<Vehicle>,Double> earliestLinkExitTime = new HashMap<>();
 	private Network network;
 	
-	public CongestionDetectionEventHandler(Network network ) {
-		this.network = network ;
+	public CongestionDetectionEventHandler(Network network) {
+		this.network = network;
 	}
 
 	@Override
@@ -35,23 +35,24 @@ public class CongestionDetectionEventHandler implements LinkEnterEventHandler,
 
 	@Override
 	public void handleEvent(LinkEnterEvent event) {
-		Link link = network.getLinks().get( event.getLinkId() ) ;
-		double linkTravelTime =  link.getLength() / link.getFreespeed( event.getTime() );
-		this.earliestLinkExitTime.put( event.getVehicleId(), event.getTime() + linkTravelTime ) ;
+		Link link = network.getLinks().get(event.getLinkId());
+		double linkTravelTime = link.getLength() / link.getFreespeed(event.getTime());
+		this.earliestLinkExitTime.put(event.getVehicleId(), event.getTime() + linkTravelTime);
 	}
 
 	@Override
 	public void handleEvent(LinkLeaveEvent event) {
 		if(this.earliestLinkExitTime.containsKey(event.getVehicleId())) {
 			double excessTravelTime = event.getTime() - this.earliestLinkExitTime.get(event.getVehicleId());
-			System.out.println("excess travel time: " + excessTravelTime);
+			if (excessTravelTime >= 1)
+				System.out.println("excess travel time in min: " + excessTravelTime/60);
 		}
 	}
 
 	@Override
 	public void handleEvent(PersonDepartureEvent event) {
-		Id<Vehicle> vehId = Id.create( event.getPersonId(), Vehicle.class ) ; // unfortunately necessary since vehicle departures are not uniformly registered
-		this.earliestLinkExitTime.put( vehId, event.getTime() ) ;
+		Id<Vehicle> vehId = Id.create(event.getPersonId(), Vehicle.class); // unfortunately necessary since vehicle departures are not uniformly registered
+		this.earliestLinkExitTime.put(vehId, event.getTime());
 	}
 
 }
